@@ -30,10 +30,14 @@ local plugins = {
         end,
     },
     { 'williamboman/mason.nvim', dependencies = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig' } },
-    { 'folke/neodev.nvim',       opts = {} },
-    { 'folke/todo-comments.nvim',dependencies={"nvim-lua/plenary.nvim"},       opts = {    TODO = { icon = " ", color = "info", alt = {"todo"} },} },
-    { 'folke/which-key.nvim',    opts = {} },
-    { 'j-hui/fidget.nvim',       opts = {} },
+    { 'folke/twilight.nvim', opts = {} },
+    { 'folke/neodev.nvim', opts = {} },
+    { 'folke/todo-comments.nvim', dependencies = { "nvim-lua/plenary.nvim" }, opts = { TODO = { icon = " ", color = "info", alt = { "todo" } }, } },
+    { 'folke/which-key.nvim', opts = {} },
+    { 'j-hui/fidget.nvim', opts = {} },
+    { "max397574/better-escape.nvim", opts = {} },
+    { 'akinsho/bufferline.nvim', opts = {}, dependencies = 'nvim-tree/nvim-web-devicons' },
+    { "akinsho/toggleterm.nvim", opts = {} },
     {
         'nvim-lualine/lualine.nvim',
 
@@ -102,88 +106,90 @@ local plugins = {
         },
         build = ':TSUpdate',
     },
-    { 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } }, {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
-        "MunifTanjim/nui.nvim"
-    },
-    config = function()
-        local options = {
-            -- hijack_netrw_behavior = "open_default",
-            hijack_cursor = true,
-            -- hijack_unnamed_buffer_when_opening = true,
-            sync_root_with_cwd = true,
-            update_focused_file = {
-                enable = true,
-                update_root = false,
-            },
-            view = {
-                adaptive_size = false,
-                side = "left",
-                width = 30,
-                preserve_window_proportions = true,
-            },
-            git = {
-                enable = false,
-                ignore = true,
-            },
-            filesystem_watchers = {
-                enable = true,
-            },
-            actions = {
-                open_file = {
-                    resize_window = true,
+    { 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
+    { 'windwp/nvim-autopairs', event = "InsertEnter",                          opts = {} },
+    {
+        "nvim-tree/nvim-tree.lua",
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim"
+        },
+        config = function()
+            local options = {
+                -- hijack_netrw_behavior = "open_default",
+                hijack_cursor = true,
+                -- hijack_unnamed_buffer_when_opening = true,
+                sync_root_with_cwd = true,
+                update_focused_file = {
+                    enable = true,
+                    update_root = false,
                 },
-            },
-            renderer = {
-                root_folder_label = false,
-                highlight_git = false,
-                highlight_opened_files = "none",
-
-                indent_markers = {
+                view = {
+                    adaptive_size = false,
+                    side = "left",
+                    width = 30,
+                    preserve_window_proportions = true,
+                },
+                git = {
                     enable = false,
+                    ignore = true,
                 },
-
-                icons = {
-                    show = {
-                        file = true,
-                        folder = true,
-                        folder_arrow = true,
-                        git = false,
-                    },
-
-                    glyphs = {
-                        default = "󰈚",
-                        symlink = "",
-                        folder = {
-                            default = "",
-                            empty = "",
-                            empty_open = "",
-                            open = "",
-                            symlink = "",
-                            symlink_open = "",
-                            arrow_open = "",
-                            arrow_closed = "",
-                        },
-                        git = {
-                            unstaged = "✗",
-                            staged = "✓",
-                            unmerged = "",
-                            renamed = "➜",
-                            untracked = "★",
-                            deleted = "",
-                            ignored = "◌",
-                        },
+                filesystem_watchers = {
+                    enable = true,
+                },
+                actions = {
+                    open_file = {
+                        resize_window = true,
                     },
                 },
-            },
-        }
-        require("nvim-tree").setup(options)
-    end,
-},
+                renderer = {
+                    root_folder_label = false,
+                    highlight_git = false,
+                    highlight_opened_files = "none",
+
+                    indent_markers = {
+                        enable = false,
+                    },
+
+                    icons = {
+                        show = {
+                            file = true,
+                            folder = true,
+                            folder_arrow = true,
+                            git = false,
+                        },
+
+                        glyphs = {
+                            default = "󰈚",
+                            symlink = "",
+                            folder = {
+                                default = "",
+                                empty = "",
+                                empty_open = "",
+                                open = "",
+                                symlink = "",
+                                symlink_open = "",
+                                arrow_open = "",
+                                arrow_closed = "",
+                            },
+                            git = {
+                                unstaged = "✗",
+                                staged = "✓",
+                                unmerged = "",
+                                renamed = "➜",
+                                untracked = "★",
+                                deleted = "",
+                                ignored = "◌",
+                            },
+                        },
+                    },
+                },
+            }
+            require("nvim-tree").setup(options)
+        end,
+    },
 }
 
 require('lazy').setup(plugins, {})
@@ -254,25 +260,29 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 -- vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>e', "<cmd> NvimTreeFocus <CR>", { desc = 'File [E]xplorer' })
-vim.keymap.set('n', '<C-n>', "<cmd> NvimTreeToggle <CR>", { desc = 'Toggle file explorer' })
+vim.keymap.set('n', '<leader>e', "<cmd> NvimTreeFocus<CR>", { desc = 'File [E]xplorer' })
+vim.keymap.set('n', '<C-n>', "<cmd> NvimTreeToggle<CR>", { desc = 'Toggle file explorer' })
 
--- Set startup directory to Desktop
+-- Terminal
+vim.keymap.set('n', '<leader>h', "<cmd> ToggleTerm<CR>", { desc = 'Toggle terminal' })
+function _G.set_terminal_keymaps()
+    local opts = { buffer = 0 }
+    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], { desc = "Exit terminal" })
+    vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { desc = "Exit terminal" })
+end
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- buffer management
+vim.keymap.set('n', '<tab>', ":bn<CR>", { desc = 'Next buffer' })
+vim.keymap.set('n', '<S-tab>', ":bp<CR>", { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>x', ":bd<CR>", { desc = 'Close buffer' })
+
+
+-- NOTE: Set startup directory to Desktop
 -- local os = require("os")
---
 -- local path_to_desktop = os.getenv("USERPROFILE") .. "\\Desktop"
---
 -- local vim_enter_group = vim.api.nvim_create_augroup("vim_enter_group", { clear = true })
---
 -- vim.api.nvim_create_autocmd(
 --     {"VimEnter"},
 --     { pattern = "*", command = "cd " .. path_to_desktop, group = vim_enter_group }
 -- )
-
--- todo: hell
-
--- TODOx hell
-
--- TODO: hell
-
--- comments
