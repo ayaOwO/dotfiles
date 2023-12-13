@@ -30,12 +30,14 @@ local plugins = {
         end,
     },
     { 'williamboman/mason.nvim', dependencies = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig' } },
+    { 'stevearc/overseer.nvim', opt = {} },
     { 'folke/twilight.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
     { 'folke/todo-comments.nvim', dependencies = { "nvim-lua/plenary.nvim" }, opts = { TODO = { icon = " ", color = "info", alt = { "todo" } }, } },
     { 'folke/which-key.nvim', opts = {} },
     { 'j-hui/fidget.nvim', opts = {} },
     { "max397574/better-escape.nvim", opts = {} },
+    { "sindrets/diffview.nvim", opts = {} },
     { 'akinsho/bufferline.nvim', opts = {}, dependencies = 'nvim-tree/nvim-web-devicons' },
     { "akinsho/toggleterm.nvim", opts = {} },
     {
@@ -200,8 +202,8 @@ local lsp_config = require('lspconfig')
 lsp_config.lua_ls.setup {}
 lsp_config.csharp_ls.setup {}
 
-vim.o.number = true
-vim.o.relativenumber = true
+vim.wo.number = true
+vim.wo.relativenumber = true
 -- Tab
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -270,6 +272,7 @@ function _G.set_terminal_keymaps()
     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], { desc = "Exit terminal" })
     vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { desc = "Exit terminal" })
 end
+
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- buffer management
@@ -286,3 +289,7 @@ vim.keymap.set('n', '<leader>x', ":bd<CR>", { desc = 'Close buffer' })
 --     {"VimEnter"},
 --     { pattern = "*", command = "cd " .. path_to_desktop, group = vim_enter_group }
 -- )
+
+-- TODO: Add dotnet to overseer
+-- TODO: Show current language on lualine
+-- TODO: configure omnisharp/csharp ls properly
