@@ -29,12 +29,21 @@ local plugins = {
             vim.cmd.colorscheme 'catppuccin'
         end,
     },
+    {
+        'folke/flash.nvim',
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
+            { "f", mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
+        }
+    },
     { 'williamboman/mason.nvim', dependencies = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig' } },
     { 'stevearc/overseer.nvim', opt = {} },
     { 'folke/twilight.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
     { 'folke/todo-comments.nvim', dependencies = { "nvim-lua/plenary.nvim" }, opts = { TODO = { icon = " ", color = "info", alt = { "todo" } }, } }, -- TODO: allow for lower case todos
-    { 'folke/which-key.nvim', opts = {} },
+    { 'folke/which-key.nvim', lazy = true, opts = {} },
     { 'j-hui/fidget.nvim', opts = {} },
     { "max397574/better-escape.nvim", opts = {} },
     { "sindrets/diffview.nvim", opts = {} },
@@ -57,6 +66,7 @@ local plugins = {
     {
         -- Autocompletion
         'hrsh7th/nvim-cmp',
+        event = "InsertEnter",
         dependencies = {
             -- Snippet Engine & its associated nvim-cmp source
             'L3MON4D3/LuaSnip',
@@ -133,5 +143,4 @@ require('keybinds-conf')
 
 -- TODO: Add dotnet to overseer
 -- TODO: Show current language on lualine
--- TODO: Use a movement plugin, flash/scope/sneak
 -- TODO: omnisharp, allow for decompliation
