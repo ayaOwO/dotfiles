@@ -134,3 +134,4 @@ require('keybinds-conf')
 -- TODO: Add dotnet to overseer
 -- TODO: Show current language on lualine
 -- TODO: Use a movement plugin, flash/scope/sneak
+-- TODO: omnisharp, allow for decompliation
