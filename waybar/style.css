@@ -2,22 +2,22 @@
 
 * {
   font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
-  min-height: 0;
-}
-
-#waybar {
-  background: transparent;
-  color: @text;
-  margin: 5px 5px;
-}
-
-#workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
-}
+  font-size: 18px;
+    min-height: 0;
+  }
+  
+  #waybar {
+    background: transparent;
+    color: @text;
+    margin: 5px 5px;
+  }
+  
+  #workspaces {
+    border-radius: 1rem;
+    margin: 5px;
+    background-color: @surface0;
+    margin-left: 1rem;
+  }
 
 #workspaces button {
   color: @lavender;
@@ -51,26 +51,6 @@
   color: @blue;
   border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
-}
-
-#battery {
-  color: @green;
-}
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @red;
-}
-
-#backlight {
-  color: @yellow;
-}
-
-#backlight, #battery {
-    border-radius: 0;
 }
 
 #pulseaudio {
