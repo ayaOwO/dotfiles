@@ -21,7 +21,7 @@
     "hyprland/workspaces": {
         "format": "{name} {icon} ",
         "format-icons": {
-            "visible": "󰄛",
+            "active": "󰄛",
             "default": ""
         },
     },
