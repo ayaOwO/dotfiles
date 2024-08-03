@@ -1,10 +1,9 @@
 @import "catppuccin/macchiato.css";
 
 * {
-  font-family: FantasqueSansMono Nerd Font;
+  font-family: FantasqueSansM Nerd Font;
   font-size: 18px;
-    min-height: 0;
-  }
+      }
   
   #waybar {
     background: transparent;
