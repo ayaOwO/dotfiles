@@ -23,13 +23,14 @@
 }
 
 
-/* Workspaces */
+/* Workspace button */
 #workspaces button {
   color: @sky;
   border-radius: 1rem;
 }
 
 #workspaces button.visible {
+  background-color: @surface0;
   color: @lavender;
   border-radius: 1rem;
 }
