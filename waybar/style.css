@@ -22,39 +22,45 @@
   background-color: @base;
 }
 
-
-/* Workspace button */
+/* Workspaces */
 #workspaces button {
-  color: @sky;
-  border-radius: 1rem;
+  border: none;
+  color: @text;
 }
 
 #workspaces button.visible {
+  border-radius: 2rem;
   background-color: @surface0;
-  color: @lavender;
-  border-radius: 1rem;
+  color: @pink;
+}
+#workspaces button:hover {
+  border-radius: 2rem;
+  background-color: @surface1;
 }
 
 /* Colors */
-#clock {
-  color: @blue;
+#window{
+  color: @mauve;
 }
+
+#custom-music {
+  color: @maroon
+} 
 
 #language {
   color: @peach;
 }
 
 #pulseaudio {
-  color: @maroon;
+  color: @green;
 }
 
-#window,
-#custom-music {
-  color: @mauve;
+#clock {
+  color: @sky;
 }
 
 #custom-lock {
-  color: @lavender;
+  color: @blue;
 }
 
 #custom-power {
