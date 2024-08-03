@@ -12,21 +12,18 @@
 #workspaces,
 #custom-music,
 #window,
-#language,
 #tray,
+#language,
 #clock,
 #pulseaudio,
 #custom-lock,
 #custom-power {
   padding: 0.25rem 1rem;
   background-color: @base;
-  border-radius: 2rem;
-}
+  }
 
-.modules-right * {
-  margin-right: 1rem;
-}
 
+/* Workspaces */
 #workspaces button {
   color: @sky;
   border-radius: 1rem;
@@ -37,6 +34,7 @@
   border-radius: 1rem;
 }
 
+/* Colors */
 #clock {
   color: @blue;
 }
@@ -62,7 +60,38 @@
     color: @red;
 }
 
-#tray {
+/* Margins */
+#custom-power,
+#clock,
+#custom-music {
   margin-right: 1rem;
-  border-radius: 1rem;
+}
+
+/* Borders */
+#workspaces,
+#custom-music,
+#window,
+#tray {
+  border-radius: 2rem;
+}
+
+/* Grouped borders */
+#custom-lock {
+    border-radius: 2rem 0 0 2rem ;
+}
+
+#custom-power {
+    border-radius: 0 2rem 2rem 0;
+}
+
+#language {
+  border-radius: 2rem 0 0 2rem;
+}
+
+#pulseaudio {
+    border-radius: 0;
+} 
+
+#clock {
+  border-radius: 0 2rem 2rem 0;
 }
