@@ -3,12 +3,12 @@
 * {
   font-family: FantasqueSansM Nerd Font;
   font-size: 18px;
-      }
-  
-  #waybar {
-    background: transparent;
-  }
-  
+}
+
+#waybar {
+  background: transparent;
+}
+
 #workspaces,
 #custom-music,
 #window,
@@ -20,7 +20,7 @@
 #custom-power {
   padding: 0.25rem 1rem;
   background-color: @base;
-  }
+}
 
 
 /* Workspaces */
@@ -53,11 +53,11 @@
 }
 
 #custom-lock {
-    color: @lavender;
+  color: @lavender;
 }
 
 #custom-power {
-    color: @red;
+  color: @red;
 }
 
 /* Margins */
@@ -85,7 +85,7 @@
 }
 
 #language {
-  border-radius: 2rem 0 0 2rem;
+    border-radius: 2rem 0 0 2rem;
 }
 
 #pulseaudio {
