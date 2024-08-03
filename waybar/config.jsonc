@@ -11,6 +11,7 @@
     ],
     "modules-right": [
         "custom/music",
+        "hyprland/language",
         "pulseaudio",
         "clock",
         "tray",
@@ -56,6 +57,11 @@
         "max-length": 200,
         "separate-outputs": true
     },
+    "hyprland/language": {
+		"format": "  {}",
+		"format-en": "EN",
+		"format-he": "HE",
+	},
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}  {volume}%",
