@@ -1,9 +1,9 @@
 if vim.g.neovide then
     -- Variables
-    local defaultFontSize = 11
+    local defaultFontSize = 16
     local currentFontSize = defaultFontSize
     local fontSizeScaleFactor = 1
-    local defaultFontName = "JetBrainsMono Nerd Font"
+    local defaultFontName = "Maple Mono NF"
     local default_scale_factor = 1.0
     -- Functions
     local setFont = function(fontName, fontSize)
@@ -47,11 +47,10 @@ if vim.g.neovide then
     end)
 
     -- Configurations
-    setFont(defaultFontName, defaultFontSize)
     vim.g.neovide_hide_mouse_when_typing = true
     vim.g.neovide_theme = 'auto'
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
-    vim.g.neovide_refresh_rate = 144 -- NOTE: Use --no-vsync when using this option
+    vim.g.neovide_refresh_rate = 165 -- NOTE: Use --no-vsync when using this option
     vim.g.neovide_scale_factor = default_scale_factor
 
     -- vim.g.NeovideRegisterRightClick()
