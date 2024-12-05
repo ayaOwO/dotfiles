@@ -1,0 +1,104 @@
+@import "catppuccin/macchiato.css";
+
+* {
+  font-family: FantasqueSansM Nerd Font;
+  font-size: 18px;
+}
+
+#waybar {
+  background: transparent;
+}
+
+#workspaces,
+#custom-music,
+#window,
+#tray,
+#language,
+#clock,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  padding: 0.5rem 1rem;
+  background-color: @base;
+}
+
+/* Workspaces */
+#workspaces button {
+  border: none;
+  color: @text;
+}
+
+#workspaces button.visible {
+  border-radius: 2rem;
+  background-color: @surface0;
+  color: @pink;
+}
+#workspaces button:hover {
+  border-radius: 2rem;
+  background-color: @surface1;
+}
+
+/* Colors */
+#window{
+  color: @mauve;
+}
+
+#custom-music {
+  color: @maroon
+} 
+
+#language {
+  color: @peach;
+}
+
+#pulseaudio {
+  color: @green;
+}
+
+#clock {
+  color: @sky;
+}
+
+#custom-lock {
+  color: @blue;
+}
+
+#custom-power {
+  color: @red;
+}
+
+/* Margins */
+#custom-power,
+#clock,
+#custom-music {
+  margin-right: 1rem;
+}
+
+/* Borders */
+#workspaces,
+#custom-music,
+#window,
+#tray {
+  border-radius: 2rem;
+}
+
+/* Grouped borders */
+#custom-lock {
+    border-radius: 2rem 0 0 2rem ;
+}
+
+#custom-power {
+    border-radius: 0 2rem 2rem 0;
+}
+
+#language {
+    border-radius: 2rem 0 0 2rem;
+}
+
+#pulseaudio {
+    border-radius: 0;
+} 
+
+#clock {
+  border-radius: 0 2rem 2rem 0;
+}
