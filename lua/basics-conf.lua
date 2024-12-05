@@ -19,3 +19,4 @@ vim.o.signcolumn = 'yes'
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.termguicolors = true
+

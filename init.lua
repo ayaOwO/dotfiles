@@ -30,6 +30,13 @@ local plugins = {
         end,
     },
     {
+        "seblj/roslyn.nvim",
+        ft = "cs",
+        opts = {
+            -- your configuration comes here; leave empty for default settings
+        }
+    },
+    {
         'folke/flash.nvim',
         event = "VeryLazy",
         opts = {},
@@ -38,23 +45,35 @@ local plugins = {
             { "f", mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
         }
     },
-    { 'williamboman/mason.nvim', dependencies = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig' } },
+    { 'williamboman/mason.nvim', opts = { regestries = "github:Crashdummyy/mason-registry" }, dependencies = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig' } },
     { 'stevearc/overseer.nvim', opt = {} },
     { 'folke/twilight.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
     { 'folke/todo-comments.nvim', dependencies = { "nvim-lua/plenary.nvim" }, opts = { TODO = { icon = " ", color = "info", alt = { "todo" } }, } }, -- TODO: allow for lower case todos
-    { 'folke/which-key.nvim', lazy = true, opts = {} },
-    { 'j-hui/fidget.nvim', opts = {} },
+    {
+        'folke/which-key.nvim',
+        lazy = true,
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
+    },
+    { 'j-hui/fidget.nvim',            opts = {} },
     { "max397574/better-escape.nvim", opts = {} },
-    { "sindrets/diffview.nvim", opts = {} },
-    { 'akinsho/bufferline.nvim', opts = {}, dependencies = 'nvim-tree/nvim-web-devicons' },
-    { "akinsho/toggleterm.nvim", opts = {} },
+    { "sindrets/diffview.nvim",       opts = {} },
+    { 'akinsho/bufferline.nvim',      opts = {}, dependencies = 'nvim-tree/nvim-web-devicons' },
+    { "akinsho/toggleterm.nvim",      opts = {} },
     { "nvimtools/none-ls.nvim" }, -- NOTE: none-ls is not initiated
     { "tpope/vim-fugitive" },
-    { "lewis6991/gitsigns.nvim", opts = {} },
+    { "lewis6991/gitsigns.nvim",      opts = {} },
     { "rhysd/committia.vim" },
-    -- { "OmniSharp/omnisharp-vim" },
-    { "Hoffs/omnisharp-extended-lsp.nvim" },
     {
         'nvim-lualine/lualine.nvim',
 
@@ -125,8 +144,6 @@ require('neovide-conf')
 require("lua-line-conf")
 require("nvimtree-conf")
 require('lsp-config-conf')
-setupOmniSharp()
-setupCSharpLs()
 pcall(require('telescope').load_extension, 'fzf')
 require('cmp-conf')
 require('ufo-conf')
@@ -140,7 +157,3 @@ require('keybinds-conf')
 --     {"VimEnter"},
 --     { pattern = "*", command = "cd " .. path_to_desktop, group = vim_enter_group }
 -- )
-
--- TODO: Add dotnet to overseer
--- TODO: Show current language on lualine
--- TODO: omnisharp, allow for decompliation
